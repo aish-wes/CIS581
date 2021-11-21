@@ -20,7 +20,7 @@ EPOCH = 50        #Training epoches
 EPOCH_CUSTOM = 10
 
 BATCH_SIZE = 32    #Training batch size
-NUM_WORKER = 8     #Training workers
+NUM_WORKER = 0     #Training workers
 img_size = 224
 img_d = ''
 img_n = []
