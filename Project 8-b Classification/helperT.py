@@ -129,7 +129,8 @@ def test(model, loader, filename):
     model.eval()
     preds = []
     for i, (y, x) in enumerate(loader):
-        x, y = x.cuda().float(), y.cuda().float().reshape(-1,1)
+#         x, y = x.cuda().float(), y.cuda().float().reshape(-1,1)
+        x, y = x.cpu().float(), y.cpu().float().reshape(-1,1)
         outputs = model(x)
 
         preds.append(outputs.cpu().detach().numpy())
@@ -142,7 +143,8 @@ def test_cel(model, loader, filename):
     model.eval()
     preds = []
     for i, (y,x) in enumerate(loader):
-        x= x.cuda().float()
+#         x= x.cuda().float()
+        x= x.cpu().float()
         outputs = model(x)
         preds.append(F.softmax(outputs, dim=-1).cpu().detach().numpy())
 
